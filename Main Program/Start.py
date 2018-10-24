@@ -24,7 +24,7 @@ def mongo_connection():
 
 
 if __name__ == '__main__':
-    name = str(input('Enter the name of the video: '))
+    name = str(raw_input('Enter the name of the video: '))
     (vdolength,totalFrames) = videosplit.Launch(name)
 	# The name of the folder to store the frames of the video
     os.chdir('data')
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     result_imag = {}
     #startTime = datetime.now()
     startTime = time.time()
-    for f in os.listdir():
+    for f in os.listdir('.'):
         pred, img = Main.main(f)
         if pred in result.keys():
             result[pred] = result[pred] + 1
